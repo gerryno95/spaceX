@@ -1,0 +1,55 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Enemy1Controller : MonoBehaviour
+{
+    [SerializeField] WeaponController gun;
+    [SerializeField] Transform[] shipBasePieces;
+    [SerializeField] float baseRotationVel = 1f;
+    // Start is called before the first frame update
+    [SerializeField] float maxVel = 10f;
+    [SerializeField] float velDistanceMultiplier = 1f;
+    [SerializeField] Transform targetPoint;
+    FlashMeshRendererController flashController;
+
+    float vel;
+    private void Awake()
+    {
+        flashController = GetComponent<FlashMeshRendererController>();
+    }
+
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        foreach (Transform tr in shipBasePieces) {
+            tr.Rotate(Vector3.up * baseRotationVel * Time.deltaTime);
+        }
+
+        //goto targetPoint
+        Vector3 toTarget = targetPoint.position - transform.position;
+        float sqrDis = toTarget.sqrMagnitude;
+        vel = velDistanceMultiplier * sqrDis;
+        vel = Mathf.Clamp(vel, 0, maxVel);
+        transform.Translate(toTarget.normalized * Time.deltaTime * vel);
+
+        //orient gun transform to aim the spaceship
+        toTarget = targetPoint.position - gun.transform.position;
+        Vector3 toTargetHor = new Vector3(toTarget.x,0f,toTarget.z);
+        float xAngle = - Mathf.Atan2(toTarget.y, toTargetHor.magnitude) * 180f / Mathf.PI;
+
+        gun.transform.rotation = Quaternion.LookRotation(toTargetHor) * Quaternion.Euler(xAngle, 0, 0) ;
+    }
+
+    public void OnCollision(CollisionData data) {
+        Hitted();
+    }
+    void Hitted() {
+        flashController.Flash();
+    }
+}
