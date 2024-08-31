@@ -102,7 +102,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 823451461bc6b584482cf71d8e01cedd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.0391884
+      value: 427.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 823451461bc6b584482cf71d8e01cedd,
         type: 3}
@@ -168,6 +168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 823451461bc6b584482cf71d8e01cedd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1144725990202893455, guid: 823451461bc6b584482cf71d8e01cedd,
         type: 3}
@@ -250,6 +255,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4255013350199061427}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 823451461bc6b584482cf71d8e01cedd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 339838401034840756}
     - targetCorrespondingSourceObject: {fileID: 8630164502163058606, guid: 823451461bc6b584482cf71d8e01cedd,
         type: 3}
       insertIndex: -1
@@ -280,7 +289,28 @@ MonoBehaviour:
   baseRotationVel: 200
   maxVel: 20
   velDistanceMultiplier: 0.04
+  maxFireDistance: 600
   targetPoint: {fileID: 0}
+  weapon: {fileID: 1338905145480958048}
+--- !u!114 &339838401034840756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373302616936541244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f79d92682ce4a244b602760348f1fb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1.4980391, g: 1.4980391, b: 1.4980391, a: 1}
+  flashVel: 10
+  renderers:
+  - {fileID: 1759948975885080273}
+  - {fileID: 7758743566045151919}
+  - {fileID: 2978534268602804942}
+  - {fileID: 1372109206453779475}
 --- !u!4 &436206123147048418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1144725990202893455, guid: 823451461bc6b584482cf71d8e01cedd,
@@ -293,9 +323,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 715884399160512877}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1372109206453779475 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7285167109522543234, guid: 823451461bc6b584482cf71d8e01cedd,
+    type: 3}
+  m_PrefabInstance: {fileID: 715884399160512877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1759948975885080273 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1262078088406468540, guid: 823451461bc6b584482cf71d8e01cedd,
+    type: 3}
+  m_PrefabInstance: {fileID: 715884399160512877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2978534268602804942 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2358395488556891043, guid: 823451461bc6b584482cf71d8e01cedd,
+    type: 3}
+  m_PrefabInstance: {fileID: 715884399160512877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4928479016807014484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5587327339580846393, guid: 823451461bc6b584482cf71d8e01cedd,
+    type: 3}
+  m_PrefabInstance: {fileID: 715884399160512877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7758743566045151919 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7080728692934890434, guid: 823451461bc6b584482cf71d8e01cedd,
     type: 3}
   m_PrefabInstance: {fileID: 715884399160512877}
   m_PrefabAsset: {fileID: 0}
@@ -324,6 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7337400670930226146}
+  fireTime: 0.5
 --- !u!1001 &6626520893926262889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,6 +396,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478142274390164363, guid: 3bfb82f56e5603f44b15dbd0cb8f19e4,
+        type: 3}
+      propertyPath: vel
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5108206775685865883, guid: 3bfb82f56e5603f44b15dbd0cb8f19e4,
         type: 3}

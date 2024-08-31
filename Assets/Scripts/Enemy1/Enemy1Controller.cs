@@ -10,24 +10,31 @@ public class Enemy1Controller : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] float maxVel = 10f;
     [SerializeField] float velDistanceMultiplier = 1f;
+    [SerializeField] float maxFireDistance = 400f;
     [SerializeField] Transform targetPoint;
-    FlashMeshRendererController flashController;
+    [SerializeField] WeaponController weapon;
 
+    FlashMeshRendererController flashController;
+    PlayerStatus playerStatus;
+    float sqrMaxFireDistance;
     float vel;
     private void Awake()
     {
+        sqrMaxFireDistance = maxFireDistance * maxFireDistance;
         flashController = GetComponent<FlashMeshRendererController>();
+        playerStatus = GetComponent<PlayerStatus>();
     }
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (Transform tr in shipBasePieces) {
+        foreach (Transform tr in shipBasePieces)
+        {
             tr.Rotate(Vector3.up * baseRotationVel * Time.deltaTime);
         }
 
@@ -40,16 +47,32 @@ public class Enemy1Controller : MonoBehaviour
 
         //orient gun transform to aim the spaceship
         toTarget = targetPoint.position - gun.transform.position;
-        Vector3 toTargetHor = new Vector3(toTarget.x,0f,toTarget.z);
-        float xAngle = - Mathf.Atan2(toTarget.y, toTargetHor.magnitude) * 180f / Mathf.PI;
+        Vector3 toTargetHor = new Vector3(toTarget.x, 0f, toTarget.z);
+        float xAngle = -Mathf.Atan2(toTarget.y, toTargetHor.magnitude) * 180f / Mathf.PI;
 
-        gun.transform.rotation = Quaternion.LookRotation(toTargetHor) * Quaternion.Euler(xAngle, 0, 0) ;
+        gun.transform.rotation = Quaternion.LookRotation(toTargetHor) * Quaternion.Euler(xAngle, 0, 0);
+
+        if (toTarget.sqrMagnitude < sqrMaxFireDistance)
+        {
+            weapon.Fire();
+        }
     }
 
-    public void OnCollision(CollisionData data) {
-        Hitted();
+    public void OnCollision(CollisionData data)
+    {
+        Hitted(data);
     }
-    void Hitted() {
+    void Hitted(CollisionData data)
+    {
         flashController.Flash();
+        Bullet bullet = data.other.GetComponent<Bullet>();
+        if (bullet)
+        {
+            playerStatus.AddEnergy(-bullet.GetDamage());
+        }
+    }
+    public void OnDead()
+    {
+        Destroy(gameObject);
     }
 }
