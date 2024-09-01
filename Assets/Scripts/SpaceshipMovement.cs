@@ -6,7 +6,6 @@ using UnityEngine;
 public class SpaceshipMovement : MonoBehaviour
 {
     [SerializeField] float forwardVel = 10f;
-    [SerializeField] float rotVel = 1f;
     [SerializeField] float rotationYFactor =1f;
     [SerializeField] float curvationYFactor = 1f;
     [SerializeField] float rotationXFactor = 1f;
