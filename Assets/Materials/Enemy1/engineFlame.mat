@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Energy
-  m_Shader: {fileID: -6465566751694194690, guid: 493edd7d3af828442be1d332c17760a0,
+  m_Name: engineFlame
+  m_Shader: {fileID: -6465566751694194690, guid: 94dff84b8c528b046b3d606a9b488a9a,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,12 +24,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainText:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 0aeaecf624338054ba01fd543d761fb5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -48,17 +44,14 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _boardSpace: 0.02
-    - _energy: 28
-    - _energySpace: 0.04
-    - _maxSpaces: 29
-    - _skewFactor: 0.1
+    - _noiseScale: 15
     m_Colors:
-    - _BoardColor: {r: 0, g: 0.638464, b: 1, a: 0}
-    - _Color1: {r: 1, g: 0, b: 0, a: 0}
-    - _Color2: {r: 0, g: 1, b: 0.01673746, a: 0}
+    - _Color: {r: 0, g: 0.8532249, b: 2.639016, a: 0}
+    - _Color1: {r: 0, g: 0.42022282, b: 0.11557394, a: 0}
+    - _Color2: {r: 0, g: 22.363522, b: 11.4340925, a: 0}
+    - _NoiseVel: {r: 0, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &1366601798551144932
+--- !u!114 &6897422393655394435
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
