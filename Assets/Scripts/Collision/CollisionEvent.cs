@@ -12,4 +12,8 @@ public class CollisionEvent : MonoBehaviour
         cd.other = other;
         onParticleCollision.Invoke(cd);
     }
+
+    public UnityEvent<CollisionData> GetOnParticleCollision() {
+        return this.onParticleCollision;
+    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SpaceshipController : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class SpaceshipController : MonoBehaviour
     void Start()
     {
         selectedWeapon = gunController;
-        
+
     }
 
     // Update is called once per frame
@@ -30,9 +31,26 @@ public class SpaceshipController : MonoBehaviour
     public void OnCollision(CollisionData data)
     {
         Bullet bullet = data.other.GetComponent<Bullet>();
-        if (bullet) {
+        if (bullet)
+        {
             playerStatus.AddEnergy(-bullet.GetDamage());
         }
         flashController.Flash();
+    }
+
+    public void OpenRewardPack(RewardPack rewardPack)
+    {
+
+        switch (rewardPack)
+        {
+            case AmmoRewardPack ammoRewardPack:
+                selectedWeapon.AddAmmo(ammoRewardPack.GetAmmo());
+                break;
+
+            case EnergyRewardPack energyRewardPack:
+                playerStatus.AddEnergy(energyRewardPack.GetEnergy());
+                break;
+            default: throw new NotImplementedException();
+        }
     }
 }

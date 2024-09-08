@@ -12,28 +12,18 @@ public class GunController : WeaponController
     bool canFire = true;
 
     Camera camera;
-    Vector3 aimTarget;
-    private void Awake()
+
+    protected override void Awake()
     {
+        base.Awake();
         camera = Camera.main;
     }
-    void Start()
-    {
 
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public override void Fire()
     {
-        if (canFire)
+        if (canFire && GetAmmo()>0)
         {
             Vector3 aimTarget = CalculateAimTarget();
-            this.aimTarget = aimTarget;
 
             Quaternion aimRot = Quaternion.LookRotation(aimTarget - leftGun.position);
             leftGun.rotation = aimRot;
@@ -41,13 +31,16 @@ public class GunController : WeaponController
             aimRot = Quaternion.LookRotation(aimTarget - rightGun.position);
             rightGun.rotation = aimRot;
 
-
-
             foreach (ParticleSystem proj in projectiles)
             {
                 proj.Play();
             }
 
+            AddAmmo(-1);
+
+            if (onFire != null) {
+                onFire.Invoke(this);
+            }
             canFire = false;
             StartCoroutine(WaitToFire());
         }

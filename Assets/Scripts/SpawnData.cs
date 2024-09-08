@@ -12,6 +12,7 @@ public class SpawnData : ScriptableObject
         public GameObject prefab;
         public float minSize = 1f;
         public float maxSize = 1f;
+        public float probabilityOfSpawn = 1f;
     }
 
     [SerializeField] SpawnObject[] objects;

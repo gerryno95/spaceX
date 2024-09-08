@@ -17,23 +17,29 @@ MonoBehaviour:
       type: 3}
     minSize: 20
     maxSize: 30
+    probabilityOfSpawn: 0.8
   - prefab: {fileID: 1046445819460100028, guid: 33c017fcafdb52043ba51c0beddb0c29,
       type: 3}
     minSize: 20
     maxSize: 30
+    probabilityOfSpawn: 0.8
   - prefab: {fileID: 9041164309905117174, guid: b51cc3bb85ef5ce44abdebfb9163acca,
       type: 3}
     minSize: 20
     maxSize: 30
+    probabilityOfSpawn: 0.8
   - prefab: {fileID: 5008989116241149672, guid: f742c672f61927141a7a84dfabaaaffc,
       type: 3}
     minSize: 20
     maxSize: 30
+    probabilityOfSpawn: 0.8
   - prefab: {fileID: 4615789582550994570, guid: 5ae41e7a38884814e813a776e04358c2,
       type: 3}
     minSize: 20
     maxSize: 30
+    probabilityOfSpawn: 0.8
   - prefab: {fileID: 7095029590097238785, guid: e30ea4b1f183bac4d966b0dad5e3ec7f,
       type: 3}
     minSize: 20
     maxSize: 30
+    probabilityOfSpawn: 0.8

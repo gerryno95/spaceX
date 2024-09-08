@@ -73,6 +73,6 @@ public class Enemy1Controller : MonoBehaviour
     }
     public void OnDead()
     {
-        Destroy(gameObject);
+        Destroy(gameObject,4f);
     }
 }
