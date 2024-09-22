@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject enemy1;
     [SerializeField] int numEnemies = 20;
     float minDistance = 750f;
-    float maxDistance = 1700f;
+    float maxDistance = 1200f;
     // Start is called before the first frame update
     void Awake()
     {

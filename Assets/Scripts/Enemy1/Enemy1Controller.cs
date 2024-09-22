@@ -81,7 +81,10 @@ public class Enemy1Controller : MonoBehaviour
         }
         else
         {
-            playerStatus.AddEnergy(float.MinValue);
+            if (data.other.name == "collider" && data.other.transform.root.GetComponent<SpaceshipController>())
+            {
+                playerStatus.AddEnergy(float.MinValue);
+            }
         }
     }
     public void OnDead()

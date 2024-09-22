@@ -7333,7 +7333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy1: {fileID: 373302616936541244, guid: 930582f6de679fe41a4b8754252977a5, type: 3}
-  numEnemies: 2
+  numEnemies: 10
 --- !u!4 &1533663108
 Transform:
   m_ObjectHideFlags: 0
@@ -13535,6 +13535,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 602594550}
+        m_TargetAssemblyTypeName: MessageSystem, Assembly-CSharp
+        m_MethodName: AddMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: You have to stay in the safe area. Come back!
           m_BoolArgument: 1
         m_CallState: 2
   onDeactivate:
