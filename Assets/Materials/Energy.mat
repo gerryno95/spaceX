@@ -49,7 +49,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _boardSpace: 0.02
-    - _energy: 28
+    - _energy: 23.614252
     - _energySpace: 0.04
     - _maxSpaces: 29
     - _skewFactor: 0.1

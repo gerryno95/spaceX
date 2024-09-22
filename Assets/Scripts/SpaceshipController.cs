@@ -7,7 +7,9 @@ using IGA.UnityHelpers;
 public class SpaceshipController : MonoBehaviour
 {
     [SerializeField] GunController gunController;
-    [SerializeField] ActionInvoker explosion; 
+    [SerializeField] ActionInvoker explosion;
+    [SerializeField] float enemyCollisionDamage = 0.3f;
+
     WeaponController selectedWeapon;
     FlashMeshRendererController flashController;
     PlayerStatus playerStatus;
@@ -43,11 +45,21 @@ public class SpaceshipController : MonoBehaviour
             playerStatus.AddEnergy(-bullet.GetDamage());
             flashController.Flash();
         }
-        if (data.collision!=null && data.collision.transform.tag == "rock") {
+        else if (data.collision != null && data.collision.transform.tag == "rock")
+        {
             playerStatus.AddEnergy(float.MinValue);
             Explode();
         }
-        
+        else
+        {
+            Enemy1Controller enemy1 = data.other.transform.root.GetComponent<Enemy1Controller>();
+            if (enemy1)
+            {
+                playerStatus.AddEnergy(-enemyCollisionDamage);
+            }
+        }
+
+
     }
 
     public void OpenRewardPack(RewardPack rewardPack)

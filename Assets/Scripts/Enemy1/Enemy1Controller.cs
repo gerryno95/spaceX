@@ -73,6 +73,9 @@ public class Enemy1Controller : MonoBehaviour
         if (bullet)
         {
             playerStatus.AddEnergy(-bullet.GetDamage());
+        }else
+        {
+            playerStatus.AddEnergy(float.MinValue);
         }
     }
     public void OnDead()
