@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class GunController : WeaponController
 {
     [SerializeField] ParticleSystem[] projectiles;
@@ -19,6 +20,7 @@ public class GunController : WeaponController
         camera = Camera.main;
     }
 
+    // POLYMORPHISM In this case we override the Fire method of the superclass WeaponController
     public override void Fire()
     {
         if (canFire && GetAmmo()>0)

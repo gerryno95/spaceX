@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] float damage = 0.2f;
+    [SerializeField] float damage = 0.2f; // ENCAPSULATION 
 
     public virtual float GetDamage()
     {

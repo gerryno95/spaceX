@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class PlayerStatus : MonoBehaviour
 {
     [SerializeField] float maxEnergy = 1f;
-    [SerializeField] float energy = 1f;
+    [SerializeField] float energy = 1f; // ENCAPSULATION 
 
     [SerializeField] UnityEvent onDead;
     [SerializeField] UnityEvent onEnergyChanged;

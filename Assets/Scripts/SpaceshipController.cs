@@ -34,7 +34,7 @@ public class SpaceshipController : MonoBehaviour
             return;
         if (Input.GetMouseButton(0))
         {
-            selectedWeapon.Fire();
+            selectedWeapon.Fire(); // ABSTRACTION the fire logic is inside the selected weapon.
         }
     }
     public void OnCollision(CollisionData data)
@@ -50,7 +50,7 @@ public class SpaceshipController : MonoBehaviour
             flashController.Flash();
             if (playerStatus.GetEnergy() <= 0f)
             {
-                Explode();
+                Explode(); // ABSTRACTION
             }
         }
         else if (data.collision != null && data.collision.transform.tag == "rock")
