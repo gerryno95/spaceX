@@ -11,8 +11,13 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] UnityEvent onDead;
     [SerializeField] UnityEvent onEnergyChanged;
 
+    public bool IsDead { get; private set; }
+
     public void AddEnergy(float energy)
     {
+        if (IsDead) {
+            return;
+        }
         this.energy += energy;
         this.energy = Mathf.Clamp(this.energy, 0f, maxEnergy);
         if (this.energy <= 0f)
@@ -21,6 +26,7 @@ public class PlayerStatus : MonoBehaviour
             {
                 onDead.Invoke();
             }
+            IsDead = true;
         }
         if (onEnergyChanged != null) {
             onEnergyChanged.Invoke();
@@ -29,5 +35,9 @@ public class PlayerStatus : MonoBehaviour
 
     public float GetEnergy() {
         return energy;
+    }
+    public UnityEvent GetOnDead()
+    {
+        return onDead;
     }
 }

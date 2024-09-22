@@ -24,6 +24,11 @@ public class Enemy1Controller : MonoBehaviour
         sqrMaxFireDistance = maxFireDistance * maxFireDistance;
         flashController = GetComponent<FlashMeshRendererController>();
         playerStatus = GetComponent<PlayerStatus>();
+
+        if (!targetPoint)
+        {
+            targetPoint = FindObjectOfType<SpaceshipController>().transform;
+        }
     }
 
     void Start()
@@ -73,13 +78,14 @@ public class Enemy1Controller : MonoBehaviour
         if (bullet)
         {
             playerStatus.AddEnergy(-bullet.GetDamage());
-        }else
+        }
+        else
         {
             playerStatus.AddEnergy(float.MinValue);
         }
     }
     public void OnDead()
     {
-        Destroy(gameObject,4f);
+        Destroy(gameObject, 4f);
     }
 }

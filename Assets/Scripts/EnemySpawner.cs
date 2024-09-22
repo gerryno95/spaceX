@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     float minDistance = 750f;
     float maxDistance = 1700f;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         for (int i = 0; i < numEnemies; i++) {
             GameObject enemy = Instantiate<GameObject>(enemy1);
@@ -23,9 +23,4 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

@@ -16,23 +16,41 @@ public class GameController : Singleton<GameController>
 
     [SerializeField] UnityEvent onStateChange;
     [SerializeField] UnityEvent onGameOver;
+
+    public bool IsLevelCompleted { get; private set; }
+
+    int enemyCount;
+
     // Start is called before the first frame update
     void Start()
     {
         State = GameState.RUNNNING;
+        Enemy1Controller[] enemy1s = FindObjectsOfType<Enemy1Controller>();
+        enemyCount = enemy1s.Length;
+        for (int i = 0; i < enemy1s.Length; i++)
+        {
+            enemy1s[i].GetComponent<PlayerStatus>().GetOnDead().AddListener(() => EnemyDead());
+
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void EnemyDead()
     {
-
+        enemyCount--;
+        if (enemyCount == 0)
+        {
+            State = GameState.GAME_OVER;
+            IsLevelCompleted = true;
+            GameOver();
+        }
     }
 
     public void GameOver()
     {
         State = GameState.GAME_OVER;
 
-        if (onStateChange != null) {
+        if (onStateChange != null)
+        {
             onStateChange.Invoke();
         }
         if (onGameOver != null)

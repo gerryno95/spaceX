@@ -14,7 +14,7 @@ public class SpaceshipController : MonoBehaviour
     FlashMeshRendererController flashController;
     PlayerStatus playerStatus;
     GameController gameController;
-    
+
 
     private void Awake()
     {
@@ -39,11 +39,19 @@ public class SpaceshipController : MonoBehaviour
     }
     public void OnCollision(CollisionData data)
     {
+        if (gameController.State == GameController.GameState.GAME_OVER)
+        {
+            return;
+        }
         Bullet bullet = data.other.GetComponent<Bullet>();
         if (bullet)
         {
             playerStatus.AddEnergy(-bullet.GetDamage());
             flashController.Flash();
+            if (playerStatus.GetEnergy() <= 0f)
+            {
+                Explode();
+            }
         }
         else if (data.collision != null && data.collision.transform.tag == "rock")
         {
