@@ -17,7 +17,6 @@ public class AmmoRewardPack : RewardPack
                 controller.OpenRewardPack(this);
             }
             isEnabled = false;
-            Destroy(gameObject);
         }
     }
 

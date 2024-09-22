@@ -18,6 +18,7 @@ public class Enemy1Controller : MonoBehaviour
     PlayerStatus playerStatus;
     float sqrMaxFireDistance;
     float vel;
+    GameController gameController;
     private void Awake()
     {
         sqrMaxFireDistance = maxFireDistance * maxFireDistance;
@@ -27,12 +28,15 @@ public class Enemy1Controller : MonoBehaviour
 
     void Start()
     {
-
+        gameController = GameController.Instance;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameController.State == GameController.GameState.GAME_OVER)
+            return;
+
         foreach (Transform tr in shipBasePieces)
         {
             tr.Rotate(Vector3.up * baseRotationVel * Time.deltaTime);

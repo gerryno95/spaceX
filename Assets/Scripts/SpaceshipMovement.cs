@@ -17,15 +17,21 @@ public class SpaceshipMovement : MonoBehaviour
     float currentRotY;
     float currentRotX;
 
+
+    GameController gameController;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameController = GameController.Instance;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameController.State == GameController.GameState.GAME_OVER)
+            return;
+
         float deltaHor = Input.GetAxis("Mouse X");
         float deltaVer = Input.GetAxis("Mouse Y");
 

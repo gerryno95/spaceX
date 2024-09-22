@@ -12,9 +12,12 @@ public class SatelliteController : MonoBehaviour
     float angle = 0f;
     Vector3 center;
     Vector3 radius;
+
+    GameController gameController;
     // Start is called before the first frame update
     void Start()
     {
+        gameController = GameController.Instance;
         radius = transform.right * rotRadius;
         center = transform.position + radius;
     }
@@ -22,6 +25,9 @@ public class SatelliteController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameController.State == GameController.GameState.GAME_OVER)
+            return;
+
         foreach (Transform cab in cabin)
         {
             cab.Rotate(Vector3.forward * cabinRotVel * Time.deltaTime);

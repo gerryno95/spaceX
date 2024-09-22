@@ -18,7 +18,6 @@ public class EnergyRewardPack : RewardPack
                 controller.OpenRewardPack(this);
             }
             isEnabled = false;
-            Destroy(gameObject);
         }
     }
 
