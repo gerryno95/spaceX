@@ -5132,6 +5132,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onCollisionEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1939992419813262479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5171,4 +5174,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75ab34529040ee4485dcf6802483bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 20
+  ammo: 50

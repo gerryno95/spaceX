@@ -45,7 +45,7 @@ public class RockSpawner : MonoBehaviour
 
                     newObj.transform.position = position;
                     newObj.transform.rotation = Quaternion.Euler(Random.value * 360f, Random.value * 360f, Random.value * 360f);
-
+                    newObj.transform.localScale *= Mathf.Lerp(0.5f, 1.1f, Random.value);
                 }
             }
         }

@@ -7,6 +7,8 @@ public abstract class WeaponController : MonoBehaviour
     [SerializeField] int maxAmmo = 100;
     [SerializeField] int ammo = 100; // ENCAPSULATION this parameter has one setter (AddAmmo) and one getter (GetAmmo) to control the ammo of the weapon 
     [SerializeField] protected UnityEvent<WeaponController> onFire;
+    [SerializeField] protected UnityEvent<WeaponController> onAmmoChanged;
+    
     protected virtual void Awake()
     {
         if (ammo > maxAmmo)
@@ -15,11 +17,16 @@ public abstract class WeaponController : MonoBehaviour
     public abstract void Fire();
     public void AddAmmo(int incr)
     {
+       
         ammo += incr;
         if (ammo < 0)
             ammo = 0;
         if (ammo > maxAmmo)
             ammo = maxAmmo;
+        if (onAmmoChanged != null)
+        {
+            onAmmoChanged.Invoke(this);
+        }
     }
     public int GetAmmo()
     {

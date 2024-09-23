@@ -16,9 +16,9 @@ public class GUIWeaponStatus : MonoBehaviour
         textMesh.text = weapon.GetAmmo().ToString();
     }
 
-    public void OnFire(WeaponController weaponController)
+    public void RefreshAmmo()
     {
-        textMesh.text = weaponController.GetAmmo().ToString();
+        textMesh.text = weapon.GetAmmo().ToString();
     }
 
 }
