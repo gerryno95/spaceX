@@ -35,7 +35,7 @@ public class SpaceshipMovement : MonoBehaviour
         float deltaHor = Input.GetAxis("Mouse X");
         float deltaVer = Input.GetAxis("Mouse Y");
 
-        deltaHor = Mathf.Clamp(deltaHor, -3, 3);
+        deltaHor = Mathf.Clamp(deltaHor, -100, 100);
         rotY = rotY + deltaHor;
         rotX = rotX + deltaVer;
         rotX = Mathf.Clamp(rotX, -40f, 40f);

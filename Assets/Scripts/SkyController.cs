@@ -43,9 +43,6 @@ public class SkyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameController.State == GameController.GameState.GAME_OVER)
-            return;
-
         transform.position = spaceship.position;
 
     }
