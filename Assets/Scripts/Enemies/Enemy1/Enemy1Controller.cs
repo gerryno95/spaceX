@@ -89,6 +89,12 @@ public class Enemy1Controller : MonoBehaviour
     }
     public void OnDead()
     {
+        EventData eventData = new EventData();
+        eventData.eventType = EventData.EventType.ENEMY_DEAD;
+        eventData.gameObject = gameObject;
+
+        EventCollector.Instance.onGeneralEvent.Invoke(eventData);
+
         Destroy(gameObject, 4f);
     }
 }

@@ -34622,6 +34622,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 823451461bc6b584482cf71d8e01cedd,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1144725990202893455, guid: 823451461bc6b584482cf71d8e01cedd,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -34980,6 +34985,9 @@ MonoBehaviour:
   maxAmmo: 100
   ammo: 100
   onFire:
+    m_PersistentCalls:
+      m_Calls: []
+  onAmmoChanged:
     m_PersistentCalls:
       m_Calls: []
   bullet: {fileID: 7337400670930226146}
