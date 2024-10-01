@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Enemy3Controller : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] float forwardVel;
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
+    {
+        transform.Translate(transform.forward * Time.deltaTime * forwardVel);
+    }
+
+    public void OnCollision(CollisionData collisionData)
     {
         
     }
